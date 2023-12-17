@@ -1,0 +1,31 @@
+{% extends "base1.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class=" shadow-lg form-container">
+    <h3 align="center" style="color: white;">Login</h3>
+    <form method="POST" class="form-mycontaier">
+        <div class="form-group">
+            <label for="email" style="color: white;">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email..">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="password1" style="color: white;" >Password</label>
+            <input type="password" class="form-control" id="password1" name="password1" placeholder="*********">
+        </div>
+        <br>
+        <div align="center">
+            <button type="submit" class="btn btn-success">LogIn</button>
+        </div>
+        <br>
+        <div align="center">
+            <footer>
+                <span style="color: white;" >new here? <a href="{{ url_for('auth.signup') }}">signup</a></span>
+            </footer>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

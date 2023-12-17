@@ -1,0 +1,58 @@
+{% extends "base3.html" %}
+
+
+{% block title %}Submit{% endblock %}
+
+{% block content %}
+
+<div class="px-4 py-5 text-center" >
+    <h1 class="display-5 fw-bold">
+        Submit Your Recipe
+    </h1>
+    <div class="col-lg-6 mx-auto" >
+        <p class="lead"> Share your amazing recipies with thousands of cooking enthusiastics aorund the world. Fill our form to get started</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-8 mb-5" style="border: 2px solid rgb(2, 2, 2); border-radius: 8px;">
+        <form action="/uploads" enctype="multipart/form-data" method="POST">
+            <div class="row g-3 mb-4 mt-4 ml-5 mr-5">
+                <div class="col-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="example@gmail.com">
+                </div>
+                <br>
+                <div class="col-12 mt-2">
+                    <label for="name" class="form-label">Recipe Name</label>
+                    <input type="text" name="name" id="name" class="form-control">
+                </div>
+
+                <div class="col-12 mt-2">
+                    <label for="Description" class="form-label">Description</label>
+                    <textarea name="description" id="description" cols="30" rows="4" class="form-control"></textarea>
+                </div>
+
+                <div class="col-12 mt-2">
+                    <label for="ingredients" class="form-label">Ingredients</label><Br>
+                    <input type="text" name="ingredients" id="ingredients" class="form-control">
+                </div>
+
+                <div class="col-12 mt-2">
+                    <label for="image">Recipe Image</label>
+                    <input type="file" class="form-control-file" name="file" required>
+                </div>
+                
+                <br>
+
+                <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-primary">Submit Recipe</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

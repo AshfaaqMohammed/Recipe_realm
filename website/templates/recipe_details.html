@@ -1,0 +1,37 @@
+{% extends "base3.html" %}
+
+{% block title %}Submit{% endblock %}
+
+{% block content %}
+
+
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+        <img src="{{ url_for('views.uploaded_file', filename=recipe.recipe_image_url) }}" width='607' height="510" class="d-block mx-lg-auto img-fluid"
+            loading="lazy" style="border-radius: 10px;" alt="Image1">
+
+    </div>
+    <div class="col-12 col-lg-6">
+        <h1 class="display-5 fw-bold mb-1">
+            {{ recipe.recipe_name }}
+        </h1>
+        <br>
+        <h3 class="display-5 fw-bold mb-1">Ingredients</h3>
+        <p class="lead">
+            {{ recipe.ingredients }}
+        </p>
+        <br>
+        <h3 class="display-5 fw-bold mb-1">Description</h3>
+        <p class="lead">
+            {{ recipe.recipe_description }}
+        </p>
+    </div>
+</div>
+{% if current_user.id == recipe.user_id %}
+<div class="mt-2 mb-2 d-flex justify-content-center">
+    <button type="button" class="btn btn-danger mr-3" onclick="deleterecipe({{ recipe.id }})">Delete</button>
+    <a href="{{ url_for('views.edit_recipe', id=recipe.id) }}" class="btn btn-success">Edit</a>
+</div>
+{% endif %}
+
+{% endblock %}

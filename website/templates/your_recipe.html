@@ -1,0 +1,32 @@
+{% extends "base2.html" %}
+
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <div id="searchResultsContainer">
+    
+    </div>
+
+    <h1>{{ user.first_name }}'s Recipes</h1>
+    <br>
+    <div class="row">
+        {% for recipe in user.recipes %}
+        <div class="col-md-4 mb-4 category__link">
+            <a href="{{ url_for('views.recipe_details', id=recipe.id) }}" class="text-center">
+                <div class="shadow">
+                    <img src="{{ url_for('views.uploaded_file', filename=recipe.recipe_image_url) }}" alt="image" loading="lazy"
+                    class="category__img">
+                </div>
+                <div class="pt-1">
+                    {{ recipe.recipe_name }}
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}
